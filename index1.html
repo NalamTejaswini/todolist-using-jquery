@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo-list using jquery</title>
+        <style>
+            .window{
+                
+                background-size: 100%;
+            
+            }
+            .background{
+                width: 100%;
+                text-align: center;
+                height: 715px;
+            }
+            .left-side{
+                position: absolute;
+                top: 20%;
+                left: 63%;
+                
+            }
+            .content{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-style: italic;
+                font-weight: bolder;
+                color: white;
+                font-size: 30px;
+            }
+            #todotext{
+                border-radius: 50px;
+                padding-top: 10px;
+                padding-left: 15px;
+                padding-bottom: 10px;
+                padding-right: 100px;
+                border: none;
+            }
+            .add-button{
+                padding: 10px 15px;
+                border-radius: 60px;
+                cursor: pointer;
+                background-color:white;
+                border: none;
+            }
+            ul{
+                list-style: none;
+                
+            }
+            ul li{
+                position: relative;
+                height: 40px;
+            }
+            ul .remove{
+                
+                border-radius: 10px;
+                background-color: red;
+                color: white;
+                left: 220px;
+                position: absolute;     
+            
+            }
+            
+            
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $(".add-button").click(function(){
+                var input=$("#todotext").val();
+                if(input!=''){
+                $("#list-container").append('<li>'+input+'<button class="remove">Remove</button></li>');
+                $(".remove").click(function(){
+                    $(this).remove();
+                    
+                }
+                )
+                $(".remove").click(function(){
+                    $("li").click(function(){
+                        $(this).remove();
+                    })  
+                }
+                )
+                }  
+                else{
+                    alert("you have to write something");
+                }  
+                input='';
+            }
+            )
+            
+        })
+    
+  
+        </script>
+    </head>
+
+    <body>
+        <div class="window">
+            <img src="background1.jpg" class="background">
+            <div class="left-side">
+                <p class="content">Organize your list here...</p>
+                <div class="main-content"><input type="text" placeholder="Enter your new todo" id="todotext" >
+                    <button class="add-button">Add</button>
+                    <ul id="list-container">
+        
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    
+        
+    </body>
+
+</html>
